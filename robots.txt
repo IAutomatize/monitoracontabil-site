@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://monitoracontabil.com.br/sitemap.xml
