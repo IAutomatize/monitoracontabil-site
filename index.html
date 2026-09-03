@@ -88,7 +88,11 @@
 
     <div class="veil"></div>
     <div class="tunnel"></div>
-    <div class="mark">monitora<span>.</span>contábil</div>
+    <!-- A marca é "Monitora Contábil", sempre — é a forma depositada no INPI e a
+         que o console, o chat e os metadados usam. O tratamento em minúsculas com
+         ponto que existia aqui era o único lugar do produto que divergia. O
+         "Contábil" em destaque repete a bicromia do lockup da marca. -->
+    <div class="mark">Monitora <span>Contábil</span></div>
 
     <div class="hud"><div class="hud-in">
       <p class="hud-lead">Uma quarta-feira de fechamento, do jeito que o painel enxerga.</p>
@@ -202,7 +206,14 @@
         <li class="reveal"><i></i><span><s>Rótulo clínico ou score de risco de uma pessoa.</s> O produto mede trabalho, não mentes.</span></li>
         <li class="reveal"><i></i><span><s>Zero no lugar de “não sei”.</s> Quando falta medição, o painel escreve “—” e diz isso na cara.</span></li>
       </ul>
-      <p class="foot">Captura detalhada de URL, título e arquivo vem desligada e é opt-in por escritório, atrás do kit LGPD. Retenção padrão de 12 meses, configurável.</p>
+      <!-- Este parágrafo dizia que a captura de URL, título e arquivo vinha
+           DESLIGADA e era opt-in por escritório. Deixou de ser verdade em
+           02/09/2026, quando a coleta passou a ser sempre total (ver a migration
+           coleta_sempre_total e o comentário em agent/routes-report.ts). Promessa
+           de privacidade que o código não cumpre é o pior tipo de copy errada —
+           é a mesma divergência que conferencia.ts existe para pegar no documento
+           do cliente, e estava aqui, na nossa própria vitrine. -->
+      <p class="foot">O endereço da página, o título da janela e o nome do arquivo são coletados — por isso a implantação vem com o kit de LGPD: quem contrata define a finalidade e comunica a equipe. Retenção padrão de 12 meses, configurável. Detalhes na <a href="/privacidade">Política de Privacidade</a>.</p>
     </div>
   </section>
 
@@ -246,6 +257,11 @@
     </div>
     <div class="foot-meta">
       <div>Monitora Contábil — IAutomatize</div>
+      <nav class="foot-legal">
+        <a href="/blog/">Blog</a>
+        <a href="/privacidade">Política de Privacidade</a>
+        <a href="/termos">Termos de Uso</a>
+      </nav>
       <div>plataforma.monitoracontabil.com.br</div>
     </div>
   </footer>
