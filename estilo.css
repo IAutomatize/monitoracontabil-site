@@ -31,6 +31,8 @@ p{margin:0}
 .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--lado)}
 .pular{position:absolute;left:-999px;top:8px;z-index:50;background:#fff;color:var(--tinta);padding:10px 14px;border-radius:8px}
 .pular:focus{left:12px}
+/* some da tela, fica no texto: é o "o" do logotipo, que a íris substitui no desenho */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 :focus-visible{outline:3px solid var(--claro);outline-offset:2px;border-radius:4px}
 
 /* ── as peças da marca ── */
@@ -80,8 +82,8 @@ html:not(.com-movimento) .topo[data-tema="escuro"][data-rolou]{background:rgba(1
 .cinema{background:var(--noite);color:#fff}
 .palco{display:flex;flex-direction:column;overflow:hidden}
 .abertura{padding:calc(var(--topo) + 36px) var(--lado) 0;position:relative;z-index:2}
-.abertura .rotulo{color:#9fb3cc}
-.abertura h1{margin-top:14px;font-weight:300;font-size:clamp(30px,8.4vw,60px);line-height:1.08;letter-spacing:-.025em;max-width:15em}
+.abertura .rotulo{color:#9fb3cc;max-width:34em;text-wrap:balance}
+.abertura .manchete{margin-top:14px;font-weight:300;font-size:clamp(30px,8.4vw,60px);line-height:1.08;letter-spacing:-.025em;max-width:15em}
 .abertura .dica{margin-top:18px;font-size:13px;color:#8fa5c2}
 .iris-cena{position:relative;padding:40px 0 56px;display:flex;justify-content:center}
 .iris-hero{width:min(74vw,320px);height:auto}
@@ -204,6 +206,18 @@ html:not(.com-movimento) .topo[data-tema="escuro"][data-rolou]{background:rgba(1
 .transparencia{margin-top:28px;font-size:15px;line-height:1.65;color:#3a4a60;max-width:44em}
 .transparencia b{color:var(--tinta)}
 
+/* perguntas: <details> do próprio navegador, sem script */
+.perguntas{margin-top:32px;border-top:1px solid #d9d6ce;max-width:52em}
+.perguntas details{border-bottom:1px solid #d9d6ce}
+.perguntas summary{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:14px 0;
+                   cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;line-height:1.4;color:var(--tinta)}
+.perguntas summary::-webkit-details-marker{display:none}
+.perguntas summary::after{content:"";flex:none;width:9px;height:9px;margin:-5px 4px 0 0;border:solid var(--acao);border-width:0 2px 2px 0;
+                          transform:rotate(45deg);transition:transform .2s}
+.perguntas details[open] summary::after{transform:rotate(-135deg);margin-top:5px}
+.perguntas .resposta{padding:0 0 22px;font-size:15.5px;line-height:1.65;color:#3a4a60;max-width:44em}
+.perguntas .resposta p+p{margin-top:10px}
+
 /* planos */
 .planos{display:grid;gap:12px;margin-top:36px}
 .plano{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;position:relative}
@@ -264,5 +278,5 @@ html:not(.com-movimento) .topo[data-tema="escuro"][data-rolou]{background:rgba(1
 @media (prefers-reduced-motion: reduce){
   .iris-hero .fatia,.iris-hero .pupila{animation:none;opacity:1}
   .reveal{opacity:1;transform:none;transition:none}
-  .btn{transition:none}
+  .btn,.perguntas summary::after{transition:none}
 }

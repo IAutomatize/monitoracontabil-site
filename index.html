@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1c33">
-<title>Monitora Contábil — enxergue o seu escritório</title>
-<meta name="description" content="Você paga 8 horas de expediente. Quantas viraram trabalho? A Monitora Contábil mostra, por pessoa, para onde foi o dia no seu escritório de contabilidade. O app calcula; a Alice conta.">
-<meta name="robots" content="index,follow">
+<title>Monitora Contábil: produtividade no escritório de contabilidade</title>
+<meta name="description" content="Software de produtividade para escritórios de contabilidade: mostra, por pessoa e por setor, quanto do expediente virou trabalho no e-CAC, SPED e Domínio.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="https://monitoracontabil.com.br/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -32,19 +32,143 @@
     setTimeout(function () { if (!window.__siteOk) document.documentElement.classList.remove('com-movimento'); }, 3000);
   }
 </script>
+<!-- Quem é quem, para o Google e para as IAs. O WebSite é o que faz o resultado
+     mostrar "Monitora Contábil" no lugar do domínio. As perguntas frequentes têm o
+     bloco próprio logo abaixo, gravado por _fonte/respostas.py a partir da seção
+     #perguntas: não edite o bloco à mão. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Organization", "@id": "https://monitoracontabil.com.br/#org", "name": "Monitora Contábil",
-      "url": "https://monitoracontabil.com.br/", "logo": "https://monitoracontabil.com.br/favicon.svg",
-      "description": "Monitoramento de atividade e métricas de trabalho para escritórios de contabilidade." },
-    { "@type": "SoftwareApplication", "name": "Monitora Contábil", "operatingSystem": "Windows",
-      "applicationCategory": "BusinessApplication", "url": "https://monitoracontabil.com.br/", "inLanguage": "pt-BR",
-      "description": "Mostra, por pessoa, quanto do expediente pago virou trabalho contábil. O app calcula; a Alice conta.",
+    { "@type": "Organization", "@id": "https://monitoracontabil.com.br/#org",
+      "name": "Monitora Contábil",
+      "url": "https://monitoracontabil.com.br/",
+      "logo": { "@type": "ImageObject", "url": "https://monitoracontabil.com.br/logo.png", "width": 512, "height": 512 },
+      "email": "contato@monitoracontabil.com.br",
+      "description": "Software de produtividade para escritórios de contabilidade.",
+      "disambiguatingDescription": "Mede o trabalho da equipe do próprio escritório contábil: para onde vai o expediente, por pessoa e por setor. Não é software de gestão fiscal.",
+      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "knowsAbout": ["produtividade em escritório de contabilidade", "monitoramento de atividade no computador", "LGPD no monitoramento de funcionários"],
+      "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "email": "contato@monitoracontabil.com.br", "availableLanguage": "pt-BR" } },
+    { "@type": "WebSite", "@id": "https://monitoracontabil.com.br/#site",
+      "url": "https://monitoracontabil.com.br/", "name": "Monitora Contábil", "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://monitoracontabil.com.br/#org" } },
+    { "@type": "WebPage", "@id": "https://monitoracontabil.com.br/#pagina",
+      "url": "https://monitoracontabil.com.br/", "name": "Monitora Contábil: produtividade no escritório de contabilidade",
+      "inLanguage": "pt-BR", "isPartOf": { "@id": "https://monitoracontabil.com.br/#site" },
+      "about": { "@id": "https://monitoracontabil.com.br/#software" },
+      "primaryImageOfPage": "https://monitoracontabil.com.br/og.png" },
+    { "@type": "SoftwareApplication", "@id": "https://monitoracontabil.com.br/#software",
+      "name": "Monitora Contábil",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Produtividade para escritórios de contabilidade",
+      "operatingSystem": "Windows",
+      "url": "https://monitoracontabil.com.br/", "inLanguage": "pt-BR",
+      "description": "Software de produtividade para escritórios de contabilidade. Um agente nos computadores com Windows mede a atividade de trabalho; o painel mostra, por pessoa e por setor, quanto do expediente virou trabalho contábil; a Alice explica os números em português.",
+      "featureList": [
+        "Dispositivos: quais PCs estão medindo e saudáveis, e de quem é cada um",
+        "Colaboradores: sessões de foco e a jornada em fita de 24 horas",
+        "Setores: fiscal, contábil e pessoal, sem expor ninguém",
+        "Comparativo de duas a cinco pessoas, sem ranking",
+        "Catálogo contábil pronto: e-CAC, SPED, eSocial, Sefaz, Domínio",
+        "Kit de implantação de LGPD",
+        "Resumo da semana toda segunda",
+        "Alice: perguntas em português sobre o painel"
+      ],
       "publisher": { "@id": "https://monitoracontabil.com.br/#org" },
-      "offers": { "@type": "AggregateOffer", "priceCurrency": "BRL", "lowPrice": "497", "highPrice": "1497", "offerCount": "3" } }
+      "offers": [
+        { "@type": "Offer", "name": "Pequeno negócio", "description": "Até 20 computadores. Conversas com a Alice sem limite.",
+          "price": "497", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "497", "priceCurrency": "BRL", "billingDuration": "P1M" } },
+        { "@type": "Offer", "name": "Médio negócio", "description": "Até 50 computadores. Conversas com a Alice sem limite.",
+          "price": "797", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "797", "priceCurrency": "BRL", "billingDuration": "P1M" } },
+        { "@type": "Offer", "name": "Grande negócio", "description": "Até 100 computadores. Conversas com a Alice sem limite.",
+          "price": "1497", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1497", "priceCurrency": "BRL", "billingDuration": "P1M" } }
+      ] }
   ]
+}
+</script>
+<script type="application/ld+json" id="ld-perguntas">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://monitoracontabil.com.br/#perguntas",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "O que é a Monitora Contábil?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>É um software de produtividade feito para escritórios de contabilidade. Um agente instalado nos computadores do escritório, com Windows, mede a atividade de trabalho: qual programa e qual site estavam em uso, e por quanto tempo. O painel mostra, por pessoa e por setor, quanto do expediente pago virou trabalho contábil, e a Alice, a assistente do produto, explica em português o que esses números querem dizer.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Como ela mede a produtividade de um escritório contábil?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>Pelo uso do computador, a cada poucos minutos: o programa em primeiro plano, o site aberto, o título da janela e o tempo ativo ou ocioso. Um catálogo contábil já pronto (e-CAC, SPED, eSocial, Sefaz, Domínio) separa o que é trabalho do que é distração, e o escritório ajusta o que vale para ele. Onde falta medição, o painel escreve \"—\", nunca zero.<\/p><p>O que vale medir, e o que não vale, está em <a href=\"https://monitoracontabil.com.br/blog/produtividade-em-escritorio-contabil\">Produtividade em escritório contábil: o que medir e o que ignorar<\/a>.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Monitorar o computador do funcionário é permitido?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>Sim, quando o computador é da empresa, a equipe sabe antes e a finalidade é de trabalho. Na LGPD, quem decide monitorar é o escritório, como controlador; a Monitora Contábil trata os dados em nome dele. Por isso a implantação vem com um kit pronto: roteiro de reunião, e-mail de anúncio, perguntas da equipe e minuta do termo de ciência.<\/p><p>As condições estão em <a href=\"https://monitoracontabil.com.br/blog/monitorar-computador-do-funcionario-e-legal\">É legal monitorar o computador do funcionário?<\/a> e em <a href=\"https://monitoracontabil.com.br/blog/lgpd-monitoramento-de-funcionarios\">LGPD e monitoramento de funcionários<\/a>. O passo a passo da conversa com a equipe está em <a href=\"https://monitoracontabil.com.br/blog/implantar-monitoramento-sem-perder-a-equipe\">Como implantar monitoramento sem quebrar a confiança da equipe<\/a>.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "O agente registra o que a pessoa digita?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>Não. As teclas viram um contador, que soma e zera: o conteúdo do que se digita não fica guardado em lugar nenhum. O mesmo vale para a área de transferência, porque o agente conta o Ctrl+C e o Ctrl+V e nunca lê o que foi copiado. O endereço da página, o título da janela e o nome do arquivo são coletados, e a implantação diz isso à equipe.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quanto custa?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Em quais computadores funciona, e quanto tempo leva para começar?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>Em computadores com Windows que sejam da empresa. É um instalador só, com a chave do seu escritório: o PC aparece no painel assim que instala, sem configurar nada, e na manhã seguinte o dia anterior já está medido. O painel abre no navegador; a Alice fala pelo app próprio, no celular.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "A Monitora Contábil faz gestão fiscal, como certidões e parcelamentos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>Não. Ela não acompanha certidões, parcelamentos nem pendências fiscais dos clientes do escritório. O que ela mede é o trabalho da equipe do próprio escritório: para onde vai o tempo, por pessoa e por setor. O e-CAC e os outros portais aparecem nela como categorias de trabalho.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quem vê os números de cada pessoa, e por quanto tempo eles ficam guardados?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>O painel é do escritório que contrata. A página do líder mostra o setor sem expor ninguém (com menos de três pessoas, o número não aparece), e nenhuma tela ranqueia gente por um número só. Os dados de monitoramento ficam guardados por 36 meses; os detalhes estão na <a href=\"https://monitoracontabil.com.br/privacidade\">Política de Privacidade<\/a>.<\/p>"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "O que é a Alice?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>É a assistente da Monitora Contábil. Você pergunta em português, como \"como foi a semana da equipe?\", e ela responde com o número e com o motivo, e leva você para onde agir. Quem calcula é o painel: todo número que a Alice diz vem do sistema, e onde falta medição ela diz que falta.<\/p>"
+   }
+  }
+ ]
 }
 </script>
 </head>
@@ -53,7 +177,7 @@
 
 <header class="topo" data-tema="escuro">
   <a class="marca" href="#inicio" aria-label="Monitora Contábil, início">
-    <span class="wm" aria-hidden="true">M<svg class="o" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg>nitora <span class="c">Contábil</span></span>
+    <span class="wm" aria-hidden="true">M<svg class="o" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg><span class="sr">o</span>nitora <span class="c">Contábil</span></span>
   </a>
   <nav class="acoes" aria-label="Conta">
     <a class="entrar" href="https://plataforma.monitoracontabil.com.br">Entrar</a>
@@ -69,8 +193,8 @@
     <div class="trilho">
       <div class="palco pauta escura">
         <div class="abertura">
-          <p class="rotulo">Monitora Contábil</p>
-          <h1>Uma quarta-feira de fechamento, do jeito que o painel enxerga.</h1>
+          <h1 class="rotulo">Monitora Contábil · produtividade no escritório de contabilidade</h1>
+          <p class="manchete">Uma quarta-feira de fechamento, do jeito que o painel enxerga.</p>
           <p class="dica">Role para entrar no que ela está vendo</p>
         </div>
 
@@ -110,7 +234,7 @@
       <p class="rotulo">Para escritórios de contabilidade</p>
       <h2 id="t-promessa">Saiba para onde vai o dia que o seu escritório paga.</h2>
       <span class="regua"></span>
-      <p class="lead">Monitoramento de atividade e métricas de trabalho, por pessoa e por setor. O app calcula cada número; a Alice explica o que ele quer dizer.</p>
+      <p class="lead">A Monitora Contábil é um software de produtividade para escritórios de contabilidade. Um agente nos computadores com Windows mede a atividade de trabalho, e o painel mostra, por pessoa e por setor, para onde foi o expediente. O app calcula cada número; a Alice explica o que ele quer dizer.</p>
       <div class="botoes">
         <a class="btn" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
         <a class="btn sec" href="#produto">Ver o que o painel mostra</a>
@@ -203,7 +327,7 @@
     <div class="wrap duas">
       <div class="doc-cena" aria-hidden="true">
         <div class="doc capa pauta escura">
-          <span class="wm claro">M<svg class="o" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg>nitora <span class="c">Contábil</span></span>
+          <span class="wm claro">M<svg class="o" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg><span class="sr">o</span>nitora <span class="c">Contábil</span></span>
           <p class="rotulo">Resumo da semana</p>
           <p class="titulo">Semana de 6 a 10 de outubro</p>
           <p class="grande">62<small>%</small></p>
@@ -278,6 +402,56 @@
     </div>
   </section>
 
+  <!-- ═══ PERGUNTAS ═══
+       Cada resposta começa pela resposta: é o trecho que o Google e as IAs citam.
+       Esta seção é a fonte do FAQPage do <head> e do /llms.txt — depois de mudar
+       uma pergunta, rode: python3 site/_fonte/respostas.py -->
+  <section class="secao papel-escuro" id="perguntas" aria-labelledby="t-perguntas">
+    <div class="wrap">
+      <p class="rotulo">Perguntas frequentes</p>
+      <h2 id="t-perguntas">O que perguntam antes de instalar.</h2>
+      <span class="regua"></span>
+      <div class="perguntas">
+        <details>
+          <summary>O que é a Monitora Contábil?</summary>
+          <div class="resposta"><p>É um software de produtividade feito para escritórios de contabilidade. Um agente instalado nos computadores do escritório, com Windows, mede a atividade de trabalho: qual programa e qual site estavam em uso, e por quanto tempo. O painel mostra, por pessoa e por setor, quanto do expediente pago virou trabalho contábil, e a Alice, a assistente do produto, explica em português o que esses números querem dizer.</p></div>
+        </details>
+        <details>
+          <summary>Como ela mede a produtividade de um escritório contábil?</summary>
+          <div class="resposta"><p>Pelo uso do computador, a cada poucos minutos: o programa em primeiro plano, o site aberto, o título da janela e o tempo ativo ou ocioso. Um catálogo contábil já pronto (e-CAC, SPED, eSocial, Sefaz, Domínio) separa o que é trabalho do que é distração, e o escritório ajusta o que vale para ele. Onde falta medição, o painel escreve "—", nunca zero.</p><p>O que vale medir, e o que não vale, está em <a href="/blog/produtividade-em-escritorio-contabil">Produtividade em escritório contábil: o que medir e o que ignorar</a>.</p></div>
+        </details>
+        <details>
+          <summary>Monitorar o computador do funcionário é permitido?</summary>
+          <div class="resposta"><p>Sim, quando o computador é da empresa, a equipe sabe antes e a finalidade é de trabalho. Na LGPD, quem decide monitorar é o escritório, como controlador; a Monitora Contábil trata os dados em nome dele. Por isso a implantação vem com um kit pronto: roteiro de reunião, e-mail de anúncio, perguntas da equipe e minuta do termo de ciência.</p><p>As condições estão em <a href="/blog/monitorar-computador-do-funcionario-e-legal">É legal monitorar o computador do funcionário?</a> e em <a href="/blog/lgpd-monitoramento-de-funcionarios">LGPD e monitoramento de funcionários</a>. O passo a passo da conversa com a equipe está em <a href="/blog/implantar-monitoramento-sem-perder-a-equipe">Como implantar monitoramento sem quebrar a confiança da equipe</a>.</p></div>
+        </details>
+        <details>
+          <summary>O agente registra o que a pessoa digita?</summary>
+          <div class="resposta"><p>Não. As teclas viram um contador, que soma e zera: o conteúdo do que se digita não fica guardado em lugar nenhum. O mesmo vale para a área de transferência, porque o agente conta o Ctrl+C e o Ctrl+V e nunca lê o que foi copiado. O endereço da página, o título da janela e o nome do arquivo são coletados, e a implantação diz isso à equipe.</p></div>
+        </details>
+        <details>
+          <summary>Quanto custa?</summary>
+          <div class="resposta"><p>R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.</p></div>
+        </details>
+        <details>
+          <summary>Em quais computadores funciona, e quanto tempo leva para começar?</summary>
+          <div class="resposta"><p>Em computadores com Windows que sejam da empresa. É um instalador só, com a chave do seu escritório: o PC aparece no painel assim que instala, sem configurar nada, e na manhã seguinte o dia anterior já está medido. O painel abre no navegador; a Alice fala pelo app próprio, no celular.</p></div>
+        </details>
+        <details>
+          <summary>A Monitora Contábil faz gestão fiscal, como certidões e parcelamentos?</summary>
+          <div class="resposta"><p>Não. Ela não acompanha certidões, parcelamentos nem pendências fiscais dos clientes do escritório. O que ela mede é o trabalho da equipe do próprio escritório: para onde vai o tempo, por pessoa e por setor. O e-CAC e os outros portais aparecem nela como categorias de trabalho.</p></div>
+        </details>
+        <details>
+          <summary>Quem vê os números de cada pessoa, e por quanto tempo eles ficam guardados?</summary>
+          <div class="resposta"><p>O painel é do escritório que contrata. A página do líder mostra o setor sem expor ninguém (com menos de três pessoas, o número não aparece), e nenhuma tela ranqueia gente por um número só. Os dados de monitoramento ficam guardados por 36 meses; os detalhes estão na <a href="/privacidade">Política de Privacidade</a>.</p></div>
+        </details>
+        <details>
+          <summary>O que é a Alice?</summary>
+          <div class="resposta"><p>É a assistente da Monitora Contábil. Você pergunta em português, como "como foi a semana da equipe?", e ela responde com o número e com o motivo, e leva você para onde agir. Quem calcula é o painel: todo número que a Alice diz vem do sistema, e onde falta medição ela diz que falta.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FIM ═══ -->
   <section class="secao noite pauta escura final" aria-labelledby="t-final">
     <div class="wrap">
@@ -293,7 +467,7 @@
 
 <footer class="rodape-site">
   <div class="wrap">
-    <span class="wm">M<svg class="o" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg>nitora <span class="c">Contábil</span></span>
+    <span class="wm">M<svg class="o" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg><span class="sr">o</span>nitora <span class="c">Contábil</span></span>
     <nav aria-label="Rodapé">
       <a href="/blog/">Blog</a>
       <a href="/privacidade">Política de Privacidade</a>

@@ -1,0 +1,56 @@
+# Monitora Contábil
+
+> Software de produtividade para escritórios de contabilidade: mostra, por pessoa e por setor, quanto do expediente virou trabalho no e-CAC, SPED e Domínio.
+
+Site: https://monitoracontabil.com.br/ · Contato: contato@monitoracontabil.com.br · Idioma: português do Brasil
+
+**O que é a Monitora Contábil?**
+É um software de produtividade feito para escritórios de contabilidade. Um agente instalado nos computadores do escritório, com Windows, mede a atividade de trabalho: qual programa e qual site estavam em uso, e por quanto tempo. O painel mostra, por pessoa e por setor, quanto do expediente pago virou trabalho contábil, e a Alice, a assistente do produto, explica em português o que esses números querem dizer.
+
+**Como ela mede a produtividade de um escritório contábil?**
+Pelo uso do computador, a cada poucos minutos: o programa em primeiro plano, o site aberto, o título da janela e o tempo ativo ou ocioso. Um catálogo contábil já pronto (e-CAC, SPED, eSocial, Sefaz, Domínio) separa o que é trabalho do que é distração, e o escritório ajusta o que vale para ele. Onde falta medição, o painel escreve "—", nunca zero.
+
+O que vale medir, e o que não vale, está em [Produtividade em escritório contábil: o que medir e o que ignorar](https://monitoracontabil.com.br/blog/produtividade-em-escritorio-contabil).
+
+**Monitorar o computador do funcionário é permitido?**
+Sim, quando o computador é da empresa, a equipe sabe antes e a finalidade é de trabalho. Na LGPD, quem decide monitorar é o escritório, como controlador; a Monitora Contábil trata os dados em nome dele. Por isso a implantação vem com um kit pronto: roteiro de reunião, e-mail de anúncio, perguntas da equipe e minuta do termo de ciência.
+
+As condições estão em [É legal monitorar o computador do funcionário?](https://monitoracontabil.com.br/blog/monitorar-computador-do-funcionario-e-legal) e em [LGPD e monitoramento de funcionários](https://monitoracontabil.com.br/blog/lgpd-monitoramento-de-funcionarios). O passo a passo da conversa com a equipe está em [Como implantar monitoramento sem quebrar a confiança da equipe](https://monitoracontabil.com.br/blog/implantar-monitoramento-sem-perder-a-equipe).
+
+**O agente registra o que a pessoa digita?**
+Não. As teclas viram um contador, que soma e zera: o conteúdo do que se digita não fica guardado em lugar nenhum. O mesmo vale para a área de transferência, porque o agente conta o Ctrl+C e o Ctrl+V e nunca lê o que foi copiado. O endereço da página, o título da janela e o nome do arquivo são coletados, e a implantação diz isso à equipe.
+
+**Quanto custa?**
+R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.
+
+**Em quais computadores funciona, e quanto tempo leva para começar?**
+Em computadores com Windows que sejam da empresa. É um instalador só, com a chave do seu escritório: o PC aparece no painel assim que instala, sem configurar nada, e na manhã seguinte o dia anterior já está medido. O painel abre no navegador; a Alice fala pelo app próprio, no celular.
+
+**A Monitora Contábil faz gestão fiscal, como certidões e parcelamentos?**
+Não. Ela não acompanha certidões, parcelamentos nem pendências fiscais dos clientes do escritório. O que ela mede é o trabalho da equipe do próprio escritório: para onde vai o tempo, por pessoa e por setor. O e-CAC e os outros portais aparecem nela como categorias de trabalho.
+
+**Quem vê os números de cada pessoa, e por quanto tempo eles ficam guardados?**
+O painel é do escritório que contrata. A página do líder mostra o setor sem expor ninguém (com menos de três pessoas, o número não aparece), e nenhuma tela ranqueia gente por um número só. Os dados de monitoramento ficam guardados por 36 meses; os detalhes estão na [Política de Privacidade](https://monitoracontabil.com.br/privacidade).
+
+**O que é a Alice?**
+É a assistente da Monitora Contábil. Você pergunta em português, como "como foi a semana da equipe?", e ela responde com o número e com o motivo, e leva você para onde agir. Quem calcula é o painel: todo número que a Alice diz vem do sistema, e onde falta medição ela diz que falta.
+
+## Páginas
+
+- [Página principal](https://monitoracontabil.com.br/): o que o painel mostra, a Alice, privacidade, planos e perguntas frequentes
+- [Política de Privacidade](https://monitoracontabil.com.br/privacidade): o que o agente coleta, o que nunca coleta, bases legais e prazos de guarda
+- [Termos de Uso](https://monitoracontabil.com.br/termos): as regras do serviço
+- [Blog](https://monitoracontabil.com.br/blog/): gestão, produtividade e conformidade para escritórios de contabilidade
+
+## Blog
+
+- [É legal monitorar o computador do funcionário?](https://monitoracontabil.com.br/blog/monitorar-computador-do-funcionario-e-legal): Sim, dentro de limites claros: equipamento da empresa, comunicação prévia e finalidade legítima. Veja o que a lei brasileira permite e o que torna o monitoramento ilícito.
+- [LGPD e monitoramento de funcionários: o guia prático](https://monitoracontabil.com.br/blog/lgpd-monitoramento-de-funcionarios): Base legal, teste de legítimo interesse, minimização, retenção e direitos do titular — o que a LGPD exige de quem monitora a atividade da própria equipe.
+- [NR-1 e riscos psicossociais: o que a sua empresa precisa fazer](https://monitoracontabil.com.br/blog/nr-1-riscos-psicossociais): A NR-1 passou a exigir a gestão de riscos psicossociais no PGR. O que isso significa na prática, quais evidências valem e como registrar sem rotular pessoas.
+- [Controle de jornada em home office: o que a lei exige](https://monitoracontabil.com.br/blog/controle-de-jornada-home-office): Quem trabalha remoto tem jornada controlada? Depende do regime. Entenda a diferença entre teletrabalho por jornada e por produção, e o risco de horas extras.
+- [Como implantar monitoramento sem quebrar a confiança da equipe](https://monitoracontabil.com.br/blog/implantar-monitoramento-sem-perder-a-equipe): O roteiro de implantação que separa monitoramento que gera informação de monitoramento que gera teatro: reunião, comunicado, termo de ciência e os primeiros 30 dias.
+- [Produtividade em escritório contábil: o que medir e o que ignorar](https://monitoracontabil.com.br/blog/produtividade-em-escritorio-contabil): Nem toda métrica de produtividade diz algo útil. Quais indicadores realmente ajudam a decidir num escritório contábil — e quais só produzem teatro.
+- [Fechamento fiscal: como distribuir a carga sem queimar a equipe](https://monitoracontabil.com.br/blog/fechamento-fiscal-carga-da-equipe): O pico de fechamento é previsível — e mesmo assim pega o escritório de surpresa todo mês. Como usar dado para achatar a curva e proteger a equipe.
+- [Como escolher um software de monitoramento: 7 perguntas](https://monitoracontabil.com.br/blog/como-escolher-software-de-monitoramento): Nem toda ferramenta de monitoramento serve para uma empresa brasileira. As sete perguntas que separam um produto defensável de um passivo jurídico.
+- [Quanto custa a hora ociosa no seu escritório contábil](https://monitoracontabil.com.br/blog/custo-da-hora-ociosa-no-escritorio): Como calcular o custo real de uma hora de trabalho, o que conta como ociosidade de verdade e por que a conta simples engana.
+- [Sinais de sobrecarga na equipe: como identificar antes do afastamento](https://monitoracontabil.com.br/blog/sinais-de-sobrecarga-na-equipe): Sobrecarga aparece na rotina meses antes de virar atestado. Quais sinais são observáveis, como interpretá-los sem rotular ninguém e o que fazer.
