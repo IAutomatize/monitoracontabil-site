@@ -1,0 +1,11 @@
+/* O LOGOTIPO DO SITE — num lugar só, para a página principal, as páginas legais
+   e o blog (marca/guia.html, seção 02): "Monitora" firme em azul-tinta,
+   "Contábil" leve em azul-ação, e a íris no lugar do primeiro "o". O desenho da
+   íris vai no HTML (a simples, anel e pupila, no tamanho de uma letra). A letra
+   "o" escondida mantém o nome inteiro no texto: sem ela, o Google e o leitor de
+   tela leem "M nitora". Sobre fundo escuro, quem usa troca as duas cores. */
+.wm{font-weight:600;letter-spacing:-.02em;color:#12325a;white-space:nowrap;line-height:1}
+.wm .c{font-weight:400;color:#1f5fd0}
+.wm .o{display:inline-block;width:.545em;height:.545em;vertical-align:-.012em;margin:0 .026em;color:currentColor}
+.wm.claro{color:#fff}.wm.claro .c{color:#9cc0ff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}

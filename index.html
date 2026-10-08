@@ -20,9 +20,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Monitora Contábil: você paga 8 horas, quantas viraram trabalho?">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<!-- a letra vem do próprio site (fontes/), não do Google; a leve do título
+     carrega primeiro, porque é a primeira coisa na tela -->
+<link rel="preload" href="/fontes/ibm-plex-sans-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontes/plex.css">
+<link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="estilo.css">
 <script>
   /* Liga o mergulho antes da primeira pintura, para a página não pular.
