@@ -33,9 +33,9 @@
     <p class="doc-tipo">Documento legal</p>
     <h1>Política de Privacidade</h1>
     <p class="doc-meta">
-      <span><b>Versão</b> 1.0</span>
+      <span><b>Versão</b> 1.1</span>
       <span><b>Vigente desde</b> 03/09/2026</span>
-      <span><b>Última revisão</b> 03/09/2026</span>
+      <span><b>Última revisão</b> 08/10/2026</span>
     </p>
 
     <div class="resumo">
@@ -104,6 +104,12 @@
     <li><strong>Uso do painel:</strong> registros de acesso, endereço IP, data e hora de
     login, e a trilha de auditoria das ações feitas na conta.</li>
     <li><strong>Suporte:</strong> o que você nos escreve quando pede ajuda.</li>
+    <li><strong>Conversas com a Alice:</strong> o que você escreve e o que você
+    <strong>anexa</strong> nelas — áudio gravado ou enviado, fotos, planilhas (.xlsx e .csv)
+    e documentos (.docx, .doc e .txt). Do áudio fazemos a transcrição por escrito; da foto,
+    retiramos os metadados (inclusive a localização GPS gravada pelo celular) antes de
+    guardar. O que estiver dentro de um arquivo que você envia — uma planilha de clientes,
+    a foto de um documento — é responsabilidade de quem envia, como controlador.</li>
   </ul>
 
   <h2><span class="n">3.</span> Dados que tratamos como operador</h2>
@@ -217,8 +223,13 @@
           <td>Infraestrutura onde o serviço roda, no exterior.</td>
         </tr>
         <tr>
+          <td><b>Amazon Web Services</b></td><td>Armazenamento de anexos</td>
+          <td>Os arquivos que você anexa na conversa com a Alice, guardados em São Paulo,
+          cifrados, por até 3 meses. Nenhum dado de monitoramento.</td>
+        </tr>
+        <tr>
           <td><b>OpenAI</b></td><td>Recursos de IA</td>
-          <td>Ver a seção 8 — apenas vocabulário e métricas agregadas.</td>
+          <td>Ver a seção 8 — vocabulário, métricas agregadas e o que você anexa na conversa.</td>
         </tr>
       </tbody>
     </table>
@@ -243,23 +254,39 @@
   <h3>Alice, a assistente</h3>
   <p>A Alice responde perguntas sobre a operação do escritório. Ela lê <strong>métricas já
   somadas</strong> e o perfil que o próprio escritório escreveu sobre si. Ela não recebe a
-  série bruta de atividade, e o acesso dela nunca inclui endereço de página, título de janela
-  ou nome de arquivo.</p>
+  série bruta de atividade, e o acesso dela aos dados de monitoramento nunca inclui endereço
+  de página, título de janela ou nome de arquivo.</p>
+
+  <p>Ela também lê o que <strong>você anexa</strong> na conversa: para isso, o áudio é
+  enviado à OpenAI para ser transcrito, a foto é mostrada ao modelo, e da planilha e do
+  documento vão o resumo e os trechos que a pergunta pede. O conteúdo de um arquivo é tratado
+  como <strong>dado de fora</strong>: uma instrução escrita dentro dele não muda o que a
+  Alice faz, e numa mensagem com arquivo ela não grava regra, combinado nem meta.</p>
 
   <p>No modo <strong>Ultra</strong>, o escritório usa a própria chave da OpenAI: o consumo
-  passa a ser cobrado diretamente dele, e a relação com a OpenAI passa a ser dele também.</p>
+  passa a ser cobrado diretamente dele, e a relação com a OpenAI passa a ser dele também. A
+  transcrição de áudio é a exceção: ela usa sempre a nossa conta.</p>
 
   <h2><span class="n">9.</span> Por quanto tempo guardamos</h2>
 
   <ul class="limpa">
-    <li><strong>Dados de monitoramento:</strong> 12 meses por padrão. O prazo é configurável
-    pela empresa contratante, e o expurgo roda automaticamente todos os dias.</li>
+    <li><strong>Dados de monitoramento:</strong> 36 meses, para todas as empresas. O prazo é
+    regra da plataforma, e não configuração de cada escritório, e o expurgo roda
+    automaticamente todos os dias.</li>
+    <li><strong>Resumo diário de uso do escritório:</strong> por dia e por setor, quais
+    programas e sites foram usados, por quanto tempo e em quantos computadores, sem
+    identificar pessoas. Fica enquanto a conta existir e é apagado junto com ela.</li>
     <li><strong>Dados de conta e cobrança:</strong> pelo prazo legal aplicável após o
     encerramento, para cumprir obrigações fiscais.</li>
     <li><strong>Registros de acesso:</strong> conforme o Marco Civil da Internet.</li>
+    <li><strong>Anexos da conversa com a Alice:</strong> o arquivo fica <strong>3 meses</strong>
+    e é apagado automaticamente. A
+    transcrição do áudio e o resumo da leitura continuam na conversa. Arquivo que subiu e não
+    chegou a ser enviado numa mensagem é apagado em 24 horas.</li>
   </ul>
 
-  <p>Encerrada a conta, os dados são <strong>eliminados após 7 dias</strong>. O prazo existe
+  <p>Encerrada a conta, os dados — inclusive os arquivos anexados — são <strong>eliminados
+  após 7 dias</strong>. O prazo existe
   para permitir arrependimento: entrar de novo na conta durante esse período cancela a
   exclusão. Depois disso não há recuperação.</p>
 
@@ -273,7 +300,10 @@
     restrito ao servidor da aplicação;</li>
     <li>senhas guardadas apenas como hash; credencial de cada computador guardada como hash
     e revogável individualmente;</li>
-    <li>sessões separadas por superfície, com expiração curta e rotação.</li>
+    <li>sessões separadas por superfície, com expiração curta e rotação;</li>
+    <li>arquivos anexados guardados em armazenamento privado e cifrado, sem acesso público,
+    abertos apenas por links assinados que valem poucos minutos; o tipo de cada arquivo é
+    conferido pelo conteúdo, não pelo nome.</li>
   </ul>
 
   <p>Nenhum sistema é imune. Em caso de incidente com risco relevante, comunicamos os
