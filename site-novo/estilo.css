@@ -1,0 +1,268 @@
+/*
+  SITE — prova 1 (07/10/2026), na marca nova: marca/guia.html é a régua.
+
+  Escrito para o CELULAR primeiro. O estilo base é o do telefone; as faixas
+  @media (min-width) só acrescentam o que muda em tela maior. Nada aqui
+  presume mouse, e todo alvo de toque tem pelo menos 44 px.
+
+  As três vozes da IBM Plex (guia, seção 5): leve e grande apresenta,
+  firme e pequena rotula, itálica é a Alice citada. Plex Mono só em número de
+  tabela e em nota de procedência.
+
+  O cinema (o mergulho na íris) tem dois estados. Sem a classe .com-movimento
+  — sem JavaScript, ou com "reduzir movimento" — os quatro momentos aparecem
+  um embaixo do outro, parados. O site.js põe a classe e o palco vira sticky.
+*/
+
+:root{
+  --tinta:#12325a; --acao:#1f5fd0; --papel:#f7f6f2; --grafite:#5b6878; --ambar:#f5b93d;
+  --claro:#9cc0ff; --noite:#0b1c33; --linha:#e2e6eb; --texto:#14243a; --branco:#ffffff;
+  --prod:#0e8a73; --neu:#9aa3ae; --dis:#d4622a; --unk:#9aa3ae;
+  --lado:20px; --topo:60px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--topo) + 12px)}
+body{margin:0;background:var(--papel);color:var(--texto);
+     font:400 16px/1.6 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--acao)}
+h1,h2,h3{margin:0;color:inherit}
+p{margin:0}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--lado)}
+.pular{position:absolute;left:-999px;top:8px;z-index:50;background:#fff;color:var(--tinta);padding:10px 14px;border-radius:8px}
+.pular:focus{left:12px}
+:focus-visible{outline:3px solid var(--claro);outline-offset:2px;border-radius:4px}
+
+/* ── as peças da marca ── */
+.rotulo{font:600 11px/1.3 'IBM Plex Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--grafite)}
+.regua{display:block;width:44px;height:3px;background:var(--acao);margin:18px 0 0}
+.pauta{position:relative;background-image:repeating-linear-gradient(to bottom,transparent 0 23px,var(--fio) 23px 24px)}
+.pauta::before,.pauta::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--fio-col);pointer-events:none}
+.pauta::before{left:8%}.pauta::after{right:8%}
+.pauta.escura{background-color:var(--noite);--fio:rgba(255,255,255,.05);--fio-col:rgba(255,255,255,.08)}
+.wm{font-weight:600;letter-spacing:-.02em;color:var(--tinta);white-space:nowrap;line-height:1}
+.wm .c{font-weight:400;color:var(--acao)}
+.wm .o{display:inline-block;width:.545em;height:.545em;vertical-align:-.012em;margin:0 .026em;color:currentColor}
+.wm.claro{color:#fff}.wm.claro .c{color:var(--claro)}
+.barra-dia{display:flex;gap:2px;height:12px}
+.barra-dia span:first-child{border-radius:3px 0 0 3px}.barra-dia span:last-child{border-radius:0 3px 3px 0}
+.p{background:var(--prod)}.ne{background:var(--neu)}.d{background:var(--dis)}
+.u{background:repeating-linear-gradient(135deg,var(--unk) 0 1.4px,transparent 1.4px 4.5px);box-shadow:inset 0 0 0 1px rgba(154,163,174,.7)}
+
+/* botões: sempre com verbo, sempre 48 px de altura */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:8px;
+     background:var(--acao);color:#fff;font:600 15px/1 'IBM Plex Sans',sans-serif;text-decoration:none;border:1px solid transparent;
+     transition:background .2s,border-color .2s,color .2s}
+.btn:hover{background:#174fb3}
+.btn.sec{background:transparent;color:var(--tinta);border-color:#c9d1dc}
+.btn.sec:hover{border-color:var(--tinta)}
+.btn.sec.claro{color:#fff;border-color:rgba(255,255,255,.35)}
+.btn.sec.claro:hover{border-color:#fff}
+.btn.pequeno{min-height:40px;padding:0 14px;font-size:14px}
+.botoes{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+
+/* ── topo ── */
+.topo{position:fixed;inset:0 0 auto 0;z-index:20;height:var(--topo);display:flex;align-items:center;justify-content:space-between;
+      padding:0 var(--lado);padding-top:env(safe-area-inset-top);transition:background .3s,box-shadow .3s}
+.topo .marca{text-decoration:none;font-size:17px;display:flex;align-items:center;min-height:44px}
+.topo .acoes{display:flex;align-items:center;gap:14px}
+.topo .entrar{font:500 14px/1 'IBM Plex Sans',sans-serif;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.topo[data-tema="escuro"] .wm{color:#fff}
+.topo[data-tema="escuro"] .wm .c{color:var(--claro)}
+.topo[data-tema="escuro"] .entrar{color:#dbe6f3}
+/* sem o cinema em movimento, o texto rola por baixo do topo: aí ele ganha fundo */
+html:not(.com-movimento) .topo[data-tema="escuro"][data-rolou]{background:rgba(11,28,51,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.topo[data-tema="claro"]{background:rgba(247,246,242,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--linha)}
+.topo[data-tema="claro"] .entrar{color:var(--tinta)}
+.topo .entrar{display:none}
+
+/* ═══ O CINEMA, parado (o estado base) ═══ */
+.cinema{background:var(--noite);color:#fff}
+.palco{display:flex;flex-direction:column;overflow:hidden}
+.abertura{padding:calc(var(--topo) + 36px) var(--lado) 0;position:relative;z-index:2}
+.abertura .rotulo{color:#9fb3cc}
+.abertura h1{margin-top:14px;font-weight:300;font-size:clamp(30px,8.4vw,60px);line-height:1.08;letter-spacing:-.025em;max-width:15em}
+.abertura .dica{margin-top:18px;font-size:13px;color:#8fa5c2}
+.iris-cena{position:relative;padding:40px 0 56px;display:flex;justify-content:center}
+.iris-hero{width:min(74vw,320px);height:auto}
+.chip{display:none}
+.mergulho{display:none}
+.dia{position:relative;z-index:2;padding:48px var(--lado) 56px;background:radial-gradient(120% 80% at 50% 0%,#1b2a3f,var(--noite) 70%)}
+.dia .rotulo{color:#9fb3cc}
+.dia h2{margin-top:10px;font-weight:300;font-size:clamp(26px,7vw,44px);line-height:1.1;letter-spacing:-.02em}
+.dia .pago{margin-top:18px;font-size:15px;color:#b9c8dc}
+.dia .pago .num{font-weight:300;font-size:56px;line-height:1;letter-spacing:-.04em;color:#fff;margin-right:6px}
+.dia .barra-dia{height:18px;margin-top:18px}
+.dia .legenda{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#c9d6e8}
+.dia .legenda i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:0}
+.dia .legenda b{font:500 15px/1 'IBM Plex Mono',monospace;color:#fff;margin-right:6px}
+.dia .nota{margin-top:18px;font:400 11px/1.5 'IBM Plex Mono',monospace;color:#7f95b3}
+.virada{position:relative;z-index:2;background:var(--papel);color:var(--tinta);padding:72px var(--lado)}
+.virada .frase{font-weight:300;font-size:clamp(28px,7.6vw,56px);line-height:1.1;letter-spacing:-.025em;max-width:16em}
+.virada .frase span{display:block;color:var(--acao)}
+
+/* as fatias se formam ao abrir a página */
+.iris-hero .fatia,.iris-hero .pupila{opacity:0;animation:aparece .9s cubic-bezier(.2,.7,.2,1) forwards}
+.iris-hero .f1{animation-delay:.15s}.iris-hero .f2{animation-delay:.35s}.iris-hero .f3{animation-delay:.55s}.iris-hero .pupila{animation-delay:.8s}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+
+/* ═══ O CINEMA, com movimento (o site.js liga) ═══ */
+.com-movimento .trilho{height:440svh;position:relative}
+.com-movimento .palco{position:sticky;top:0;height:100svh;display:block;--iris-y:64%;--iris-tam:min(76vw,46svh)}
+.com-movimento .abertura{position:absolute;inset:0 0 auto 0}
+.com-movimento .iris-cena{position:absolute;inset:0;padding:0;display:block}
+.com-movimento .iris-hero{position:absolute;left:50%;top:var(--iris-y,64%);width:var(--iris-tam,min(76vw,46svh));
+                          transform:translate(-50%,-50%);transform-origin:50% 50%}
+.com-movimento .chip{display:block;position:absolute;z-index:3;opacity:0;font:500 13px/1 'IBM Plex Sans',sans-serif;color:#dbe6f3;
+                     background:rgba(11,28,51,.88);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 13px;white-space:nowrap}
+.com-movimento .chip b{font:600 13px/1 'IBM Plex Mono',monospace;color:#fff;margin-left:4px}
+.com-movimento .chip.c1{left:var(--lado);top:calc(var(--iris-y,64%) - 26vw)}
+.com-movimento .chip.c2{right:var(--lado);top:calc(var(--iris-y,64%) + 18vw)}
+.com-movimento .mergulho{display:block;position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;
+                         background:radial-gradient(circle at 50% 50%,#f8c95c,#f5b93d 45%,#e2a93a)}
+.com-movimento .dia{position:absolute;inset:0;z-index:5;opacity:0;display:flex;flex-direction:column;justify-content:center;
+                    background:radial-gradient(circle at 50% 50%,#2a2108 0%,var(--noite) 72%)}
+.com-movimento .dia .barra-dia{clip-path:inset(0 calc(100% - var(--cresce,0%)) 0 0)}
+.com-movimento .virada{position:absolute;inset:0;z-index:6;opacity:0;display:flex;align-items:center}
+
+/* ═══ AS SEÇÕES ═══ */
+.secao{padding:72px 0}
+.secao h2{margin-top:12px;font-weight:300;font-size:clamp(30px,7.6vw,52px);line-height:1.1;letter-spacing:-.025em;color:var(--tinta);max-width:18em}
+.secao h2 span{color:var(--acao)}
+.lead{margin-top:20px;font-size:17px;line-height:1.6;color:#3a4a60;max-width:36em}
+.lead.suave{color:var(--grafite);font-size:15.5px}
+.noite{color:#fff}
+.noite h2{color:#fff}.noite h2 span{color:var(--claro)}
+.noite .rotulo{color:#9fb3cc}
+.noite .lead{color:#c9d6e8}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visto{opacity:1;transform:none}
+
+/* a promessa */
+.promessa{padding-top:56px}
+.passos{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:0;counter-reset:passo;border-top:1px solid var(--linha)}
+.passos li{counter-increment:passo;display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:16px 0;border-bottom:1px solid var(--linha)}
+.passos li::before{content:counter(passo,decimal-leading-zero);grid-row:span 2;font:500 13px/1.6 'IBM Plex Mono',monospace;color:var(--acao)}
+.passos b{font-weight:600;color:var(--tinta)}
+.passos span{font-size:14.5px;color:var(--grafite)}
+
+/* o produto */
+.cartoes{display:grid;gap:12px;margin-top:36px}
+.cartao{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:22px 20px}
+.cartao .n{font:500 12px/1 'IBM Plex Mono',monospace;color:var(--acao)}
+.cartao h3{margin-top:10px;font-size:19px;font-weight:600;color:var(--tinta);letter-spacing:-.01em}
+.cartao p{margin-top:8px;font-size:15px;color:#43536a}
+.mini-dias{display:flex;flex-direction:column;gap:6px;margin-top:16px}
+.mini-dias .barra-dia{height:9px}
+
+/* a alice */
+.duas{display:grid;gap:44px}
+.tres-fatos{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#c9d6e8}
+.tres-fatos b{color:#fff;font-weight:600}
+.conversa{background:var(--papel);color:var(--texto);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:14px;
+          box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.conversa .eu{align-self:flex-end;max-width:85%;background:#e4e9f0;border-radius:16px 16px 4px 16px;padding:10px 14px;font-size:15px}
+.conversa .ela{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+.conversa .av{width:32px;height:32px;color:var(--tinta);background:#fff;border-radius:50%;padding:5px;box-shadow:inset 0 0 0 1px var(--linha)}
+.conversa .nome{font-size:13px;font-weight:600;color:var(--tinta);margin:6px 0 6px}
+.conversa .texto{font-size:15px;line-height:1.55;min-height:6.2em}
+.conversa .texto b{font-weight:600;color:var(--tinta)}
+.conversa .mini{margin-top:12px;background:#fff;border:1px solid var(--linha);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.conversa .mini .t{font-size:12px;font-weight:600;color:var(--tinta);margin-bottom:2px}
+.conversa .mini .barra-dia{height:8px}
+.conversa .mini .sem{font:400 11.5px/1.3 'IBM Plex Mono',monospace;color:var(--grafite)}
+.digitando::after{content:"";display:inline-block;width:2px;height:1em;background:var(--tinta);margin-left:2px;vertical-align:-2px;animation:pisca 1s steps(1) infinite}
+@keyframes pisca{50%{opacity:0}}
+
+/* o resumo da semana */
+.doc-cena{position:relative;height:420px;max-width:440px;width:100%;margin:0 auto}
+.doc{position:absolute;width:62%;aspect-ratio:210/297;border-radius:4px;overflow:hidden;box-shadow:0 2px 3px rgba(0,0,0,.1),0 18px 40px rgba(20,30,50,.2);padding:7% 8%}
+.doc.capa{left:0;top:0;transform:rotate(-3deg);color:#fff;display:flex;flex-direction:column}
+.doc.capa .wm{font-size:11px}
+.doc.capa .rotulo{margin-top:22%;font-size:7.5px;color:#9fb3cc}
+.doc.capa .titulo{margin-top:6px;font-weight:300;font-size:20px;line-height:1.08;letter-spacing:-.02em}
+.doc.capa .grande{margin-top:auto;font-weight:300;font-size:58px;line-height:.9;letter-spacing:-.045em}
+.doc.capa .grande small{font-size:.42em}
+.doc.capa .leg{margin-top:6px;font-size:9px;color:#b9c8dc}
+.doc.capa .leg sup{color:var(--claro);font:600 7px 'IBM Plex Mono',monospace}
+.doc.capa .rodape{margin-top:14px;padding-top:6px;border-top:1px solid rgba(255,255,255,.15);font:400 7px/1.4 'IBM Plex Mono',monospace;color:#7f95b3}
+.doc.capa .iris-fundo{position:absolute;width:70%;right:-26%;bottom:-18%;opacity:.16}
+.doc.miolo{right:0;bottom:0;background:#fbfaf7;transform:rotate(2.5deg);color:var(--texto)}
+.doc.miolo .titulo{font-weight:300;font-size:17px;color:var(--tinta);letter-spacing:-.015em}
+.doc.miolo .regua{width:22px;height:2px;margin-top:6px}
+.doc.miolo .grande{margin-top:12px;font-weight:300;font-size:42px;line-height:.9;letter-spacing:-.045em;color:var(--tinta)}
+.doc.miolo .barra-dia{height:8px;margin-top:14px}
+.doc.miolo .cit{margin-top:16px;padding-left:8px;border-left:2px solid var(--ambar);font-style:italic;font-size:11px;line-height:1.4}
+.doc.miolo .rodape{position:absolute;left:8%;right:8%;bottom:6%;padding-top:5px;border-top:1px solid var(--linha);font:400 6.5px/1.4 'IBM Plex Mono',monospace;color:var(--grafite)}
+
+/* privacidade */
+.papel-escuro{background:#eeece6}
+.recusas{display:grid;gap:0;margin-top:32px;border-top:1px solid #d9d6ce}
+.recusas div{display:flex;flex-direction:column;gap:2px;padding:16px 0;border-bottom:1px solid #d9d6ce}
+.recusas b{font-weight:600;color:var(--tinta);font-size:16.5px}
+.recusas span{color:var(--grafite);font-size:15px}
+.transparencia{margin-top:28px;font-size:15px;line-height:1.65;color:#3a4a60;max-width:44em}
+.transparencia b{color:var(--tinta)}
+
+/* planos */
+.planos{display:grid;gap:12px;margin-top:36px}
+.plano{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;position:relative}
+.plano.escolhido{border-color:var(--tinta);box-shadow:0 0 0 1px var(--tinta)}
+.plano .selo{position:absolute;top:-11px;left:20px;background:var(--tinta);color:#fff;font:600 10.5px/1 'IBM Plex Sans',sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.plano h3{font-size:15px;font-weight:600;color:var(--grafite);letter-spacing:.01em}
+.plano .preco{margin-top:12px;font-weight:300;font-size:52px;line-height:1;letter-spacing:-.04em;color:var(--tinta)}
+.plano .preco .rs{font-size:.36em;letter-spacing:0;margin-right:4px;vertical-align:.95em;font-weight:400}
+.plano .preco .mes{font-size:.3em;letter-spacing:0;color:var(--grafite);font-weight:400;margin-left:2px}
+.plano .inclui{margin:14px 0 22px;font-size:15px;color:#3a4a60;line-height:1.7}
+.plano .btn{margin-top:auto}
+.garantias{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--grafite)}
+.garantias li::before{content:"✓";color:var(--prod);font-weight:700;margin-right:6px}
+
+/* fim */
+.final{text-align:left;padding:88px 0}
+.iris-fim{width:72px;height:72px;margin-bottom:24px}
+.final h2{max-width:14em}
+
+/* rodapé */
+.rodape-site{background:var(--noite);color:#9fb3cc;padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.08)}
+.rodape-site .wm{font-size:17px;color:#fff}
+.rodape-site .wm .c{color:var(--claro)}
+.rodape-site nav{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:20px}
+.rodape-site nav a{color:#c9d6e8;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.rodape-site nav a:hover{color:#fff}
+.rodape-site .mono{margin-top:12px;font:400 12px/1.5 'IBM Plex Mono',monospace;color:#7f95b3}
+
+/* ═══ TELA MAIOR ═══ */
+@media (min-width: 720px){
+  :root{--lado:40px;--topo:68px}
+  .topo .entrar{display:flex}
+  .topo .marca{font-size:19px}
+  .botoes{flex-direction:row;flex-wrap:wrap}
+  .passos{grid-template-columns:repeat(3,1fr);border-top:0;gap:24px}
+  .passos li{border-bottom:0;border-top:1px solid var(--linha);padding-top:18px}
+  .cartoes{grid-template-columns:repeat(2,1fr);gap:16px}
+  .recusas{grid-template-columns:repeat(2,1fr);column-gap:32px}
+  .planos{grid-template-columns:repeat(3,1fr);gap:16px}
+  .secao{padding:104px 0}
+  .doc-cena{height:500px}
+  .com-movimento .chip.c1{top:calc(var(--iris-y,64%) - 18vh)}
+  .com-movimento .chip.c2{top:calc(var(--iris-y,64%) + 14vh)}
+}
+@media (min-width: 1020px){
+  .cartoes{grid-template-columns:repeat(3,1fr)}
+  .duas{grid-template-columns:1fr 1fr;align-items:center;gap:64px}
+  .abertura{padding-left:max(var(--lado),calc((100vw - 1120px)/2 + var(--lado)))}
+  .com-movimento .abertura{top:50%;transform:translateY(-50%);padding-top:0;max-width:52vw}
+  .com-movimento .palco{--iris-y:52%;--iris-tam:min(40vw,62svh)}
+  .com-movimento .chip.c1{left:calc(50% + 2vw)}
+  .com-movimento .chip.c2{right:6vw}
+  .dia,.virada{padding-left:max(var(--lado),calc((100vw - 1120px)/2 + var(--lado)));padding-right:var(--lado)}
+  .dia .barra-dia,.dia .legenda{max-width:640px}
+  .dia .legenda{flex-direction:row;gap:24px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .iris-hero .fatia,.iris-hero .pupila{animation:none;opacity:1}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+}
