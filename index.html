@@ -25,8 +25,8 @@
 <link rel="preload" href="/fontes/ibm-plex-sans-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontes/plex.css">
 <link rel="stylesheet" href="marca.css">
-<link rel="stylesheet" href="estilo.css">
-<script src="calculadora.js" defer></script>
+<link rel="stylesheet" href="estilo.css?v=20261027-3">
+<script src="calculadora.js?v=20261027-3" defer></script>
 <script>
   /* Liga o mergulho antes da primeira pintura, para a página não pular.
      Se o site.js não rodar em 3 s, desliga e o cinema fica parado. */
@@ -84,9 +84,9 @@
       "publisher": { "@id": "https://monitoracontabil.com.br/#org" },
       "offers": {
         "@type": "Offer", "name": "Por computador",
-        "description": "R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis.",
-        "price": "29.90", "priceCurrency": "BRL", "url": "https://monitoracontabil.com.br/#calculadora",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29.90", "priceCurrency": "BRL",
+        "description": "R$ 49,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis.",
+        "price": "49.90", "priceCurrency": "BRL", "url": "https://monitoracontabil.com.br/#calculadora",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49.90", "priceCurrency": "BRL",
           "unitText": "por computador por mês", "billingDuration": "P1M" } } }
   ]
 }
@@ -134,7 +134,7 @@
    "name": "Quanto custa?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "<p>R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. A ajuda na implantação, uma videochamada para instalar nos computadores, é opcional; no plano anual, ela sai grátis.<\/p>"
+    "text": "<p>R$ 49,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. Todo escritório começa com a ajuda na implantação, uma videochamada para instalar nos computadores, cobrada uma vez; no plano anual, ela sai grátis.<\/p>"
    }
   },
   {
@@ -236,26 +236,31 @@
   <section class="secao calculadora" id="calculadora" aria-labelledby="t-calc">
     <div class="wrap">
       <p class="rotulo">Quanto custa</p>
-      <h2 id="t-calc">R$ 29,90 por computador.</h2>
+      <h2 id="t-calc">R$ 49,90 por computador.</h2>
       <span class="regua"></span>
-      <p class="lead">Menos de R$ 1 por dia, por computador. Conte quantos o seu escritório tem.</p>
+      <p class="lead">Menos de R$ 2 por dia, por computador. Conte quantos o seu escritório tem.</p>
       <div class="calc">
         <div class="calc-controles" hidden>
+          <div class="calc-ciclo" role="radiogroup" aria-label="Como pagar">
+            <button type="button" role="radio" aria-checked="true" data-ciclo="mensal">Mensal</button>
+            <button type="button" role="radio" aria-checked="false" data-ciclo="anual">Anual <em>implantação grátis</em></button>
+          </div>
           <label class="calc-rotulo" for="calc-qtd">Quantos computadores?</label>
           <div class="calc-qtd">
             <button type="button" id="calc-menos" aria-label="Menos um">−</button>
-            <input id="calc-qtd" inputmode="numeric" autocomplete="off" placeholder="Ex.: 10" aria-describedby="calc-resultado">
+            <input id="calc-qtd" inputmode="numeric" autocomplete="off" placeholder="10" aria-describedby="calc-resultado">
             <button type="button" id="calc-mais" aria-label="Mais um">+</button>
           </div>
-          <label class="calc-opcao"><input type="checkbox" id="calc-ajuda"> Quero ajuda na implantação (uma videochamada para instalar nos computadores)</label>
-          <label class="calc-opcao"><input type="checkbox" id="calc-anual"> Pagar o ano de uma vez: a ajuda na implantação sai grátis</label>
-          <div class="calc-cupom">
-            <input id="calc-cupom" placeholder="Tenho um cupom" maxlength="40" aria-label="Cupom">
-            <button type="button" id="calc-cupom-aplicar" class="btn sec pequeno">Aplicar</button>
-          </div>
           <div class="calc-resultado" id="calc-resultado" aria-live="polite" hidden></div>
+          <details class="calc-cupom">
+            <summary>Tenho um cupom</summary>
+            <div class="calc-cupom-campo">
+              <input id="calc-cupom" placeholder="CÓDIGO" maxlength="40" aria-label="Cupom">
+              <button type="button" id="calc-cupom-aplicar" class="btn sec">Aplicar</button>
+            </div>
+          </details>
         </div>
-        <a class="btn" id="calc-cta" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
+        <a class="btn" id="calc-cta" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar agora</a>
       </div>
     </div>
   </section>
@@ -407,19 +412,19 @@
   <section class="secao" id="planos" aria-labelledby="t-planos">
     <div class="wrap">
       <p class="rotulo">Planos</p>
-      <h2 id="t-planos">R$ 29,90 por computador. Tudo incluso.</h2>
+      <h2 id="t-planos">R$ 49,90 por computador. Tudo incluso.</h2>
       <span class="regua"></span>
-      <p class="lead">Menos de R$ 1 por dia. No mensal, os 7 primeiros dias são grátis, e você cancela quando quiser.</p>
+      <p class="lead">Menos de R$ 2 por dia. No mensal, os 7 primeiros dias são grátis, e você cancela quando quiser.</p>
       <div class="planos">
         <article class="plano escolhido">
           <h3>Por computador</h3>
-          <p class="preco"><span class="rs">R$</span>29,90<span class="mes">/mês</span></p>
+          <p class="preco"><span class="rs">R$</span>49,90<span class="mes">/mês</span></p>
           <p class="inclui">O painel por pessoa e por setor<br>Conversas com a Alice<br>Kit de implantação e de LGPD</p>
           <a class="btn" href="#calculadora">Calcular para o meu escritório</a>
         </article>
         <article class="plano">
           <h3>Ajuda na implantação</h3>
-          <p class="inclui">Uma videochamada rápida com quem fez a Monitora Contábil, para instalar nos computadores do escritório. É opcional: quem prefere instala sozinho.</p>
+          <p class="inclui">Uma videochamada rápida com quem fez a Monitora Contábil, para instalar e configurar nos computadores do escritório. Todo escritório começa com ela.</p>
         </article>
         <article class="plano">
           <h3>Plano anual</h3>
@@ -458,7 +463,7 @@
         </details>
         <details>
           <summary>Quanto custa?</summary>
-          <div class="resposta"><p>R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. A ajuda na implantação, uma videochamada para instalar nos computadores, é opcional; no plano anual, ela sai grátis.</p></div>
+          <div class="resposta"><p>R$ 49,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. Todo escritório começa com a ajuda na implantação, uma videochamada para instalar nos computadores, cobrada uma vez; no plano anual, ela sai grátis.</p></div>
         </details>
         <details>
           <summary>Em quais computadores funciona, e quanto tempo leva para começar?</summary>
