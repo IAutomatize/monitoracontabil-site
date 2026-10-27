@@ -8,6 +8,8 @@
    · o total só aparece DEPOIS que a pessoa digita quantos computadores;
    · a ajuda na implantação NÃO é pergunta: é obrigatória (dono, 27/10/2026).
      O resultado diz quanto ela custa, ou que é grátis no anual;
+   · com cupom, o valor com desconto em destaque e o de antes riscado embaixo —
+     sem texto explicando o cupom (o dono, 27/10/2026: "só pega o valor");
    · a conta vem da API (POST /api/publico/orcamento) — o preço mora no
      backend, nunca escrito aqui. Fora do ar, mostra só o preço por computador
      e o botão, sem total inventado;
@@ -28,6 +30,7 @@
   const ciclos = [...raiz.querySelectorAll('.calc-ciclo [data-ciclo]')];
   const cupomCampo = $('#calc-cupom');
   const cupomBotao = $('#calc-cupom-aplicar');
+  const cupomAviso = $('#calc-cupom-aviso');
   const resultado = $('.calc-resultado');
   const cta = $('#calc-cta');
   controles.hidden = false;
@@ -73,24 +76,34 @@
       if (!r.ok) throw new Error(String(r.status));
       const { orcamento: o, cupom: c } = await r.json();
       if (meu !== pedido) return;
-      const partes = [
-        anual ? total(o.recorrente.valorCentavos, '/ano') : total(o.mensalidadeCheiaCentavos, '/mês'),
-        el('p', 'calc-linha', `${n} ${n === 1 ? 'computador' : 'computadores'} × ${brl(o.precoPorComputadorCentavos)}${anual ? ' × 12 meses' : ''}`),
-        o.adesao.cobradaCentavos === 0
-          ? el('p', 'calc-linha ok', anual ? 'Ajuda na implantação grátis no anual' : 'Ajuda na implantação grátis')
-          : el('p', 'calc-linha', `+ ${brl(o.adesao.cobradaCentavos)} de ajuda na implantação, uma vez`),
-      ];
-      if (o.teste) partes.push(el('p', 'calc-linha ok', `${o.teste.dias} dias grátis antes da primeira mensalidade`));
-      if (c) partes.push(el('p', c.aplicado ? 'calc-linha ok' : 'calc-linha', c.mensagem));
-      if (c && c.aplicado) {
-        partes.push(el('p', 'calc-linha', `Com o cupom, hoje: ${brl(o.hoje.totalCentavos)}. Depois, ${brl(o.recorrente.valorCentavos)} ${anual ? 'por ano' : 'por mês'}.`));
+      const periodo = anual ? '/ano' : '/mês';
+      const cheio = anual ? o.mensalidadeCheiaCentavos * 12 : o.mensalidadeCheiaCentavos;
+      // com cupom, o valor do 1º período: o que sai hoje, sem a ajuda na implantação
+      const comCupom = c && c.aplicado ? Math.max(0, o.hoje.totalCentavos - o.adesao.cobradaCentavos) : cheio;
+      const partes = [];
+      if (comCupom < cheio) {
+        // o valor com desconto em destaque, e o de antes embaixo, riscado
+        const novo = el('p', 'calc-total desconto', comCupom === 0 ? 'Grátis' : brl(comCupom));
+        if (comCupom > 0) novo.append(el('small', '', periodo));
+        partes.push(novo, el('p', 'calc-de', brl(cheio)));
+      } else {
+        partes.push(total(cheio, periodo));
       }
+      partes.push(el('p', 'calc-linha', `${n} ${n === 1 ? 'computador' : 'computadores'} × ${brl(o.precoPorComputadorCentavos)}${anual ? ' × 12 meses' : ''}`));
+      if (o.adesao.cobradaCentavos === 0) {
+        partes.push(el('p', 'calc-linha ok', anual ? 'Ajuda na implantação grátis no anual' : 'Ajuda na implantação grátis'));
+      } else {
+        partes.push(el('p', 'calc-linha', `+ ${brl(o.adesao.cobradaCentavos)} de ajuda na implantação, uma vez`));
+      }
+      if (o.teste) partes.push(el('p', 'calc-linha ok', `${o.teste.dias} dias grátis antes da primeira mensalidade`));
       resultado.replaceChildren(...partes);
       resultado.hidden = false;
+      // o retorno do cupom fica junto do campo dele, curto
+      cupomAviso.textContent = c ? (c.aplicado ? '✓ Cupom aplicado' : c.mensagem) : '';
+      cupomAviso.className = `calc-cupom-aviso${c && c.aplicado ? ' ok' : ''}`;
     } catch {
       if (meu !== pedido) return;
-      // fora do ar: o preço por computador e o botão, nunca um total inventado
-      // o preço por computador já está no título da seção: aqui, sem número nenhum
+      // fora do ar: nunca um total inventado (o preço por computador já está no título)
       resultado.replaceChildren(el('p', 'calc-linha', 'Não conseguimos calcular o total agora. O preço por computador está logo acima.'));
       resultado.hidden = false;
     }
