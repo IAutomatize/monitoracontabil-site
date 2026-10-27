@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="/fontes/plex.css">
 <link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="estilo.css">
+<script src="calculadora.js" defer></script>
 <script>
   /* Liga o mergulho antes da primeira pintura, para a página não pular.
      Se o site.js não rodar em 3 s, desliga e o cinema fica parado. */
@@ -47,6 +48,9 @@
       "url": "https://monitoracontabil.com.br/",
       "logo": { "@type": "ImageObject", "url": "https://monitoracontabil.com.br/logo.png", "width": 512, "height": 512 },
       "email": "contato@monitoracontabil.com.br",
+      "legalName": "EJWM Desenvolvimento de Programas Ltda",
+      "taxID": "69.835.295/0001-12",
+      "address": { "@type": "PostalAddress", "streetAddress": "Av. Engenheiro Carlos Reinaldo Mendes, 3200, andar 10, sala 1004", "addressLocality": "Sorocaba", "addressRegion": "SP", "postalCode": "18013-280", "addressCountry": "BR" },
       "description": "Software de produtividade para escritórios de contabilidade.",
       "disambiguatingDescription": "Mede o trabalho da equipe do próprio escritório contábil: para onde vai o expediente, por pessoa e por setor. Não é software de gestão fiscal.",
       "areaServed": { "@type": "Country", "name": "Brasil" },
@@ -78,17 +82,12 @@
         "Alice: perguntas em português sobre o painel"
       ],
       "publisher": { "@id": "https://monitoracontabil.com.br/#org" },
-      "offers": [
-        { "@type": "Offer", "name": "Pequeno negócio", "description": "Até 20 computadores. Conversas com a Alice sem limite.",
-          "price": "497", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
-          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "497", "priceCurrency": "BRL", "billingDuration": "P1M" } },
-        { "@type": "Offer", "name": "Médio negócio", "description": "Até 50 computadores. Conversas com a Alice sem limite.",
-          "price": "797", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
-          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "797", "priceCurrency": "BRL", "billingDuration": "P1M" } },
-        { "@type": "Offer", "name": "Grande negócio", "description": "Até 100 computadores. Conversas com a Alice sem limite.",
-          "price": "1497", "priceCurrency": "BRL", "url": "https://plataforma.monitoracontabil.com.br/cadastro",
-          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1497", "priceCurrency": "BRL", "billingDuration": "P1M" } }
-      ] }
+      "offers": {
+        "@type": "Offer", "name": "Por computador",
+        "description": "R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis.",
+        "price": "29.90", "priceCurrency": "BRL", "url": "https://monitoracontabil.com.br/#calculadora",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29.90", "priceCurrency": "BRL",
+          "unitText": "por computador por mês", "billingDuration": "P1M" } } }
   ]
 }
 </script>
@@ -135,7 +134,7 @@
    "name": "Quanto custa?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "<p>R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.<\/p>"
+    "text": "<p>R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. A ajuda na implantação, uma videochamada para instalar nos computadores, é opcional; no plano anual, ela sai grátis.<\/p>"
    }
   },
   {
@@ -226,6 +225,37 @@
         <div class="virada">
           <p class="frase">Você não está vigiando o seu time.<span>Está enxergando o seu escritório.</span></p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ A CALCULADORA (#503) ═══
+       Abre com o preço por computador (funciona sem JavaScript); o total só
+       aparece depois que a pessoa digita quantos computadores. A conta vem da
+       API (calculadora.js): o preço mora no backend, nunca escrito aqui. -->
+  <section class="secao calculadora" id="calculadora" aria-labelledby="t-calc">
+    <div class="wrap">
+      <p class="rotulo">Quanto custa</p>
+      <h2 id="t-calc">R$ 29,90 por computador.</h2>
+      <span class="regua"></span>
+      <p class="lead">Menos de R$ 1 por dia, por computador. Conte quantos o seu escritório tem.</p>
+      <div class="calc">
+        <div class="calc-controles" hidden>
+          <label class="calc-rotulo" for="calc-qtd">Quantos computadores?</label>
+          <div class="calc-qtd">
+            <button type="button" id="calc-menos" aria-label="Menos um">−</button>
+            <input id="calc-qtd" inputmode="numeric" autocomplete="off" placeholder="Ex.: 10" aria-describedby="calc-resultado">
+            <button type="button" id="calc-mais" aria-label="Mais um">+</button>
+          </div>
+          <label class="calc-opcao"><input type="checkbox" id="calc-ajuda"> Quero ajuda na implantação (uma videochamada para instalar nos computadores)</label>
+          <label class="calc-opcao"><input type="checkbox" id="calc-anual"> Pagar o ano de uma vez: a ajuda na implantação sai grátis</label>
+          <div class="calc-cupom">
+            <input id="calc-cupom" placeholder="Tenho um cupom" maxlength="40" aria-label="Cupom">
+            <button type="button" id="calc-cupom-aplicar" class="btn sec pequeno">Aplicar</button>
+          </div>
+          <div class="calc-resultado" id="calc-resultado" aria-live="polite" hidden></div>
+        </div>
+        <a class="btn" id="calc-cta" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
       </div>
     </div>
   </section>
@@ -372,35 +402,31 @@
     </div>
   </section>
 
-  <!-- ═══ PLANOS ═══ -->
+  <!-- ═══ PLANOS ═══
+       Sempre por computador; nenhum total por tamanho de escritório. -->
   <section class="secao" id="planos" aria-labelledby="t-planos">
     <div class="wrap">
       <p class="rotulo">Planos</p>
-      <h2 id="t-planos">Comece hoje. Pague só daqui a 7 dias.</h2>
+      <h2 id="t-planos">R$ 29,90 por computador. Tudo incluso.</h2>
       <span class="regua"></span>
-      <p class="lead">Sete dias grátis para ver a primeira jornada da sua equipe. O cartão só é cobrado no fim, e você cancela quando quiser.</p>
+      <p class="lead">Menos de R$ 1 por dia. No mensal, os 7 primeiros dias são grátis, e você cancela quando quiser.</p>
       <div class="planos">
-        <article class="plano">
-          <h3>Pequeno negócio</h3>
-          <p class="preco"><span class="rs">R$</span>497<span class="mes">/mês</span></p>
-          <p class="inclui">Até 20 computadores<br>Conversas com a Alice sem limite</p>
-          <a class="btn sec" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
-        </article>
         <article class="plano escolhido">
-          <p class="selo">Mais escolhido</p>
-          <h3>Médio negócio</h3>
-          <p class="preco"><span class="rs">R$</span>797<span class="mes">/mês</span></p>
-          <p class="inclui">Até 50 computadores<br>Conversas com a Alice sem limite</p>
-          <a class="btn" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
+          <h3>Por computador</h3>
+          <p class="preco"><span class="rs">R$</span>29,90<span class="mes">/mês</span></p>
+          <p class="inclui">O painel por pessoa e por setor<br>Conversas com a Alice<br>Kit de implantação e de LGPD</p>
+          <a class="btn" href="#calculadora">Calcular para o meu escritório</a>
         </article>
         <article class="plano">
-          <h3>Grande negócio</h3>
-          <p class="preco"><span class="rs">R$</span>1.497<span class="mes">/mês</span></p>
-          <p class="inclui">Até 100 computadores<br>Conversas com a Alice sem limite</p>
-          <a class="btn sec" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar 7 dias grátis</a>
+          <h3>Ajuda na implantação</h3>
+          <p class="inclui">Uma videochamada rápida com quem fez a Monitora Contábil, para instalar nos computadores do escritório. É opcional: quem prefere instala sozinho.</p>
+        </article>
+        <article class="plano">
+          <h3>Plano anual</h3>
+          <p class="inclui">Pague o ano de uma vez, no cartão ou no Pix, e a ajuda na implantação sai grátis.</p>
         </article>
       </div>
-      <ul class="garantias"><li>Nada é cobrado hoje</li><li>Cancele quando quiser</li><li>Pagamento seguro pelo Asaas</li></ul>
+      <ul class="garantias"><li>7 dias grátis no mensal</li><li>Cancele quando quiser</li><li>Pagamento seguro pelo Asaas</li></ul>
     </div>
   </section>
 
@@ -432,7 +458,7 @@
         </details>
         <details>
           <summary>Quanto custa?</summary>
-          <div class="resposta"><p>R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.</p></div>
+          <div class="resposta"><p>R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. A ajuda na implantação, uma videochamada para instalar nos computadores, é opcional; no plano anual, ela sai grátis.</p></div>
         </details>
         <details>
           <summary>Em quais computadores funciona, e quanto tempo leva para começar?</summary>
@@ -476,7 +502,7 @@
       <a href="/termos">Termos de Uso</a>
       <a href="https://plataforma.monitoracontabil.com.br">Entrar</a>
     </nav>
-    <p class="mono">monitoracontabil.com.br · 2026</p>
+    <p class="mono">Monitora Contábil é marca de EJWM Desenvolvimento de Programas Ltda · CNPJ 69.835.295/0001-12 · Sorocaba/SP</p>
   </div>
 </footer>
 

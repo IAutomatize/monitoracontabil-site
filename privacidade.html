@@ -26,9 +26,9 @@
     <p class="doc-tipo">Documento legal</p>
     <h1>Política de Privacidade</h1>
     <p class="doc-meta">
-      <span><b>Versão</b> 1.1</span>
+      <span><b>Versão</b> 1.2</span>
       <span><b>Vigente desde</b> 03/09/2026</span>
-      <span><b>Última revisão</b> 08/10/2026</span>
+      <span><b>Última revisão</b> 26/10/2026</span>
     </p>
 
     <div class="resumo">
@@ -96,6 +96,18 @@
     recebemos apenas a confirmação de que foi pago.</li>
     <li><strong>Uso do painel:</strong> registros de acesso, endereço IP, data e hora de
     login, e a trilha de auditoria das ações feitas na conta.</li>
+    <li><strong>Aceite do termo de acesso:</strong> quando alguém entra na conta por um
+    aparelho novo, registramos o aceite das regras de uso dos dados da equipe — quem aceitou,
+    qual versão do texto, data e hora, endereço IP e um código do aparelho gerado pelo próprio
+    painel ou aplicativo (nunca um identificador do hardware). É a prova de que quem viu os
+    dados individuais da equipe conhecia as regras — e por isso sobrevive ao encerramento da
+    conta, pelo prazo do §9.</li>
+    <li><strong>Declaração de responsabilidade no cadastro:</strong> quando alguém da conta
+    cadastra um colaborador, registramos a declaração de que a pessoa vinculada àquele perfil
+    tem ciência das coletas — quem declarou (e-mail), qual versão do texto, data e hora,
+    endereço IP e navegador. É a prova de que o escritório declarou a ciência de cada pessoa
+    que cadastrou — e por isso sobrevive ao encerramento da conta, pelo prazo do §9, já sem
+    nenhum dado do colaborador.</li>
     <li><strong>Suporte:</strong> o que você nos escreve quando pede ajuda.</li>
     <li><strong>Conversas com a Alice:</strong> o que você escreve e o que você
     <strong>anexa</strong> nelas — áudio gravado ou enviado, fotos, planilhas (.xlsx e .csv)
@@ -150,8 +162,6 @@
   <ul class="limpa nao">
     <li><strong>O conteúdo do que é digitado.</strong> Teclas são um contador que soma e
     zera. Nenhuma tecla é armazenada, transmitida ou reconstruída.</li>
-    <li><strong>Capturas de tela.</strong> O agente não tira, não guarda e não transmite
-    imagem de tela.</li>
     <li><strong>Áudio, microfone e câmera.</strong> O agente não acessa nenhum dos três.</li>
     <li><strong>Localização por GPS ou geolocalização.</strong> Não coletamos coordenadas.</li>
     <li><strong>Diagnóstico clínico ou escore de risco individual.</strong> O produto mede
@@ -160,6 +170,32 @@
     <li><strong>Dados de dispositivos pessoais.</strong> O agente é instalado pela empresa
     nos equipamentos dela.</li>
   </ul>
+
+  <h3>Gravação de tela: existe, e só assim</h3>
+
+  <p>A gravação de tela é um recurso <strong>opcional e contratado à parte</strong>, e ela
+  não está na lista acima porque seria desonesto dizer que não existe. O que vale é como
+  ela existe:</p>
+
+  <ul>
+    <li><strong>Desligada por padrão.</strong> Nenhum computador grava sem o escritório ter
+    contratado e ligado.</li>
+    <li><strong>Computador a computador.</strong> Não é um botão que liga a empresa inteira;
+    cada máquina é escolhida uma a uma pelo responsável do escritório.</li>
+    <li><strong>Com aviso individual antes.</strong> Quem for gravado é comunicado, com a
+    data de início, antes da primeira imagem. Quem não recebeu esse aviso não está sendo
+    gravado.</li>
+    <li><strong>Sem áudio.</strong> A gravação não capta som, microfone nem câmera.</li>
+    <li><strong>Com acesso restrito e registrado.</strong> Só o administrador do escritório
+    assiste, e cada abertura fica registrada: quem assistiu, de qual computador e de qual
+    período.</li>
+    <li><strong>Com prazo curto e próprio.</strong> As gravações são apagadas
+    automaticamente em poucos dias — prazo bem menor que o dos demais registros.</li>
+  </ul>
+
+  <p>Nós, da Monitora Contábil, não assistimos às gravações dos nossos clientes, e elas não
+  são lidas por inteligência artificial — nem pela Alice, nem por nenhuma outra. Elas
+  existem para o escritório, e só.</p>
 
   <h2><span class="n">5.</span> Para que usamos</h2>
 
@@ -187,6 +223,7 @@
         <tr><td>Conta, cobrança e prestação do serviço</td><td>Execução de contrato (inciso V)</td></tr>
         <tr><td>Emissão fiscal e guarda de registros</td><td>Obrigação legal (inciso II)</td></tr>
         <tr><td>Segurança, prevenção a fraude e auditoria</td><td>Legítimo interesse (inciso IX)</td></tr>
+        <tr><td>Guarda do aceite do termo de acesso e da declaração de responsabilidade depois do encerramento da conta</td><td>Exercício regular de direitos em processo (inciso VI)</td></tr>
         <tr><td>Monitoramento de atividade dos colaboradores</td><td>Definida pela empresa contratante, na condição de controladora</td></tr>
       </tbody>
     </table>
@@ -256,10 +293,6 @@
   como <strong>dado de fora</strong>: uma instrução escrita dentro dele não muda o que a
   Alice faz, e numa mensagem com arquivo ela não grava regra, combinado nem meta.</p>
 
-  <p>No modo <strong>Ultra</strong>, o escritório usa a própria chave da OpenAI: o consumo
-  passa a ser cobrado diretamente dele, e a relação com a OpenAI passa a ser dele também. A
-  transcrição de áudio é a exceção: ela usa sempre a nossa conta.</p>
-
   <h2><span class="n">9.</span> Por quanto tempo guardamos</h2>
 
   <ul class="limpa">
@@ -272,6 +305,15 @@
     <li><strong>Dados de conta e cobrança:</strong> pelo prazo legal aplicável após o
     encerramento, para cumprir obrigações fiscais.</li>
     <li><strong>Registros de acesso:</strong> conforme o Marco Civil da Internet.</li>
+    <li><strong>Aceites do termo de acesso:</strong> enquanto a conta existir e por
+    <strong>5 anos</strong> depois do encerramento. É a prova, num eventual processo, de que quem
+    viu os dados individuais da equipe conhecia as regras — e é o maior prazo de prescrição que
+    alcança um vazamento. Fica só quem aceitou, a versão do texto, quando e de onde: nenhum dado
+    de colaborador. Vencido o prazo, é apagado automaticamente.</li>
+    <li><strong>Declarações de responsabilidade do cadastro:</strong> enquanto a conta existir e
+    por <strong>5 anos</strong> depois do encerramento, pelo mesmo motivo e com o mesmo prazo dos
+    aceites. Fica só quem declarou, a versão do texto, quando e de onde: nenhum dado do
+    colaborador, nem o nome. Vencido o prazo, é apagado automaticamente.</li>
     <li><strong>Anexos da conversa com a Alice:</strong> o arquivo fica <strong>3 meses</strong>
     e é apagado automaticamente. A
     transcrição do áudio e o resumo da leitura continuam na conversa. Arquivo que subiu e não
@@ -279,7 +321,8 @@
   </ul>
 
   <p>Encerrada a conta, os dados — inclusive os arquivos anexados — são <strong>eliminados
-  após 7 dias</strong>. O prazo existe
+  após 7 dias</strong>, exceto o registro dos aceites do termo de acesso e o das declarações de
+  responsabilidade, que ficam pelo prazo acima. O prazo de 7 dias existe
   para permitir arrependimento: entrar de novo na conta durante esse período cancela a
   exclusão. Depois disso não há recuperação.</p>
 
@@ -334,6 +377,9 @@
   direitos da seção 11:</p>
 
   <ul class="limpa">
+    <li><strong>Empresa:</strong> a Monitora Contábil é uma marca de EJWM Desenvolvimento de Programas Ltda, CNPJ 69.835.295/0001-12.
+    É esse o nome que aparece na fatura do cartão e no Pix.</li>
+    <li><strong>Endereço:</strong> Av. Engenheiro Carlos Reinaldo Mendes, 3200, andar 10, sala 1004, Além Ponte, Sorocaba/SP, CEP 18013-280.</li>
     <li><strong>E-mail:</strong> <a href="mailto:contato@monitoracontabil.com.br">contato@monitoracontabil.com.br</a></li>
     <li><strong>Encarregado pelo tratamento de dados:</strong> o contato é o e-mail
     acima, monitorado para esta finalidade.</li>

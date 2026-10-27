@@ -21,7 +21,7 @@ As condições estão em [É legal monitorar o computador do funcionário?](http
 Não. As teclas viram um contador, que soma e zera: o conteúdo do que se digita não fica guardado em lugar nenhum. O mesmo vale para a área de transferência, porque o agente conta o Ctrl+C e o Ctrl+V e nunca lê o que foi copiado. O endereço da página, o título da janela e o nome do arquivo são coletados, e a implantação diz isso à equipe.
 
 **Quanto custa?**
-R$ 497 por mês para até 20 computadores, R$ 797 para até 50 e R$ 1.497 para até 100, sempre com conversas com a Alice sem limite. Os primeiros 7 dias são grátis: o cartão só é cobrado no fim, e dá para cancelar quando quiser.
+R$ 29,90 por computador por mês, com o painel e as conversas com a Alice. No mensal, os 7 primeiros dias são grátis, e dá para cancelar quando quiser. A ajuda na implantação, uma videochamada para instalar nos computadores, é opcional; no plano anual, ela sai grátis.
 
 **Em quais computadores funciona, e quanto tempo leva para começar?**
 Em computadores com Windows que sejam da empresa. É um instalador só, com a chave do seu escritório: o PC aparece no painel assim que instala, sem configurar nada, e na manhã seguinte o dia anterior já está medido. O painel abre no navegador; a Alice fala pelo app próprio, no celular.
