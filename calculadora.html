@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f6f2">
+<title>Calculadora — Monitora Contábil</title>
+<meta name="description" content="Quanto a Monitora Contábil custa para o seu escritório: R$ 49,90 por computador. Conte os computadores e comece direto pelo celular.">
+<link rel="canonical" href="https://monitoracontabil.com.br/calculadora">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- A página do QR do estande (evento, 27/10/2026): só a calculadora, para
+     fazer a conta e cadastrar pelo celular. Fica fora da busca: a mesma
+     calculadora está na página principal. -->
+<meta name="robots" content="noindex,follow">
+<link rel="preload" href="/fontes/ibm-plex-sans-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontes/plex.css">
+<link rel="stylesheet" href="/marca.css">
+<link rel="stylesheet" href="/estilo.css?v=20261027-5">
+<style>
+  body{min-height:100vh;display:flex;flex-direction:column}
+  .so-calculadora{flex:1;padding:calc(var(--topo) + 28px) 0 40px}
+  .so-calculadora h1{margin:12px auto 0;font-weight:300;font-size:clamp(30px,7.6vw,52px);line-height:1.1;
+                     letter-spacing:-.025em;color:var(--tinta);max-width:18em}
+  .so-calculadora .lead{margin-top:14px}
+  .so-rodape{padding:20px var(--lado) calc(24px + env(safe-area-inset-bottom));text-align:center;font-size:12px;line-height:1.6;color:var(--grafite)}
+  .so-rodape a{color:var(--grafite)}
+</style>
+<script src="/calculadora.js?v=20261027-5" defer></script>
+</head>
+<body>
+
+<header class="topo" data-tema="claro">
+  <a class="marca" href="/" aria-label="Monitora Contábil, início">
+    <span class="wm" aria-hidden="true">M<svg class="o" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25.75" fill="none" stroke="currentColor" stroke-width="11.5"/><circle cx="32" cy="32" r="8.97" fill="#f5b93d"/></svg><span class="sr">o</span>nitora <span class="c">Contábil</span></span>
+  </a>
+  <nav class="acoes" aria-label="Conta">
+    <a class="entrar" href="https://plataforma.monitoracontabil.com.br">Entrar</a>
+  </nav>
+</header>
+
+<main class="so-calculadora">
+  <section class="calculadora" id="calculadora" aria-labelledby="t-calc">
+    <div class="wrap">
+      <p class="rotulo">Quanto custa</p>
+      <h1 id="t-calc">R$ 49,90 por computador.</h1>
+      <span class="regua"></span>
+      <p class="lead">Menos de R$ 2 por dia, por computador. Conte quantos o seu escritório tem.</p>
+      <div class="calc">
+        <div class="calc-controles" hidden>
+          <div class="calc-ciclo" role="radiogroup" aria-label="Como pagar">
+            <button type="button" role="radio" aria-checked="true" data-ciclo="mensal">Mensal</button>
+            <button type="button" role="radio" aria-checked="false" data-ciclo="anual">Anual <em>implantação grátis</em></button>
+          </div>
+          <label class="calc-rotulo" for="calc-qtd">Quantos computadores?</label>
+          <div class="calc-qtd">
+            <button type="button" id="calc-menos" aria-label="Menos um">−</button>
+            <input id="calc-qtd" inputmode="numeric" autocomplete="off" placeholder="10" aria-describedby="calc-resultado">
+            <button type="button" id="calc-mais" aria-label="Mais um">+</button>
+          </div>
+          <div class="calc-resultado" id="calc-resultado" aria-live="polite" hidden></div>
+          <details class="calc-cupom">
+            <summary>Tenho um cupom</summary>
+            <div class="calc-cupom-campo">
+              <input id="calc-cupom" placeholder="CÓDIGO" maxlength="40" aria-label="Cupom">
+              <button type="button" id="calc-cupom-aplicar" class="btn sec">Aplicar</button>
+            </div>
+            <p class="calc-cupom-aviso" id="calc-cupom-aviso" aria-live="polite"></p>
+          </details>
+        </div>
+        <a class="btn" id="calc-cta" href="https://plataforma.monitoracontabil.com.br/cadastro">Começar agora</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="so-rodape">
+  Monitora Contábil é marca de EJWM Desenvolvimento de Programas Ltda · CNPJ 69.835.295/0001-12 · Sorocaba/SP<br>
+  <a href="/termos">Termos de Uso</a> · <a href="/privacidade">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

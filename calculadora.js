@@ -15,7 +15,9 @@
      e o botão, sem total inventado;
    · nada de mínimo: aceita a partir de 1. O mínimo só aparece na contratação;
    · o botão leva ao cadastro com a escolha na URL (computadores, ciclo,
-     cupom), e o painel a carrega até a contratação.
+     cupom), e o painel a carrega até a contratação;
+   · a página /calculadora (o QR do estande) usa este mesmo arquivo, e a
+     escolha pode vir na URL: ?cupom=, ?computadores=, ?ciclo=anual.
 */
 (() => {
   const raiz = document.getElementById('calculadora');
@@ -134,4 +136,14 @@
   cupomBotao.addEventListener('click', () => { cupom = cupomCampo.value.trim().replace(/[^A-Za-z0-9_-]/g, ''); calcular(); });
   cupomCampo.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); cupomBotao.click(); } });
   cta.href = linkDoCadastro(0);
+
+  // A escolha pela URL — o QR do estande leva o cupom do evento:
+  // /calculadora?cupom=CODIGO (e ?computadores=10, ?ciclo=anual)
+  const url = new URLSearchParams(location.search);
+  const doLink = (url.get('cupom') ?? '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+  if (doLink) { cupom = doLink; cupomCampo.value = doLink; $('.calc-cupom').open = true; }
+  const n = Number(url.get('computadores'));
+  if (Number.isInteger(n) && n > 0 && n <= 10000) qtd.value = String(n);
+  if (url.get('ciclo') === 'anual') escolherCiclo('anual');
+  else if (doLink || qtd.value) calcular();
 })();
